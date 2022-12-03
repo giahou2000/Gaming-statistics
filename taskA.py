@@ -41,6 +41,8 @@ print(L2)
 print(max(L1))
 print(max(L2))
 
+
+
 plt.plot(theta,L1)
 plt.plot(theta,L2)
 plt.show()
