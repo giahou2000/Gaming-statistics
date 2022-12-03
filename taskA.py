@@ -2,7 +2,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import math
-from sympy import *
 
 """
 ω1: no stress
@@ -50,6 +49,13 @@ print(f"Estimation of theta1: {theta1}")
 theta2 = theta[L2.argmax()]
 print(f"Estimation of theta1: {theta2}")
 
-plt.plot(theta,L1)
-plt.plot(theta,L2)
+ax = plt.axes()
+ax.set_facecolor("black")
+plt.plot(theta,L1, color="green")
+plt.plot(theta,L2, color="red")
+plt.title("Display of log(p(D1|θ)) and log(p(D2|θ)) as functions of theta", loc="left")
+plt.xlabel("theta")
+plt.ylabel("log(p(D_i|θ))")
+plt.legend(["log(p(D1|θ))", "log(p(D2|θ))"])
+plt.grid(color="white", linestyle="--", alpha=0.3)
 plt.show()
