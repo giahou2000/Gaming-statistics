@@ -24,6 +24,8 @@ print(f"{D1} has length of: {len(D1)}")
 print(f"{D2} has length of: {len(D2)}")
 
 theta = np.arange(-60, 60, 0.01)
+
+#Task A1
 p1 = 1
 p2 = 1
 
@@ -38,10 +40,15 @@ L1 = np.log(p1)
 L2 = np.log(p2)
 print(L1)
 print(L2)
-print(max(L1))
+print(np.amax(L1))
 print(max(L2))
+# print(type(L1))
 
-#Test
+theta1 = theta[L1.argmax()]
+print(f"Estimation of theta1: {theta1}")
+
+theta2 = theta[L2.argmax()]
+print(f"Estimation of theta1: {theta2}")
 
 plt.plot(theta,L1)
 plt.plot(theta,L2)
