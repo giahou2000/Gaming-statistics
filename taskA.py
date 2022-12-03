@@ -47,7 +47,7 @@ theta1 = theta[L1.argmax()]
 print(f"Estimation of theta1: {theta1}")
 
 theta2 = theta[L2.argmax()]
-print(f"Estimation of theta1: {theta2}")
+print(f"Estimation of theta2: {theta2}")
 
 ax = plt.axes()
 ax.set_facecolor("black")
