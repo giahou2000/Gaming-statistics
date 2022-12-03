@@ -37,10 +37,10 @@ for x in D2:
 
 L1 = np.log(p1)
 L2 = np.log(p2)
-print(L1)
-print(L2)
-print(np.amax(L1))
-print(max(L2))
+# print(L1)
+# print(L2)
+# print(np.amax(L1))
+# print(max(L2))
 # print(type(L1))
 
 theta1 = theta[L1.argmax()]
