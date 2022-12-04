@@ -53,16 +53,16 @@ print(f"Estimation of theta1: {theta1}")
 theta2 = theta[L2.argmax()]
 print(f"Estimation of theta2: {theta2}")
 
-# ax = plt.axes()
-# ax.set_facecolor("black")
-# plt.plot(theta,L1, color="green")
-# plt.plot(theta,L2, color="red")
-# plt.title("Display of log(p(D1|θ)) and log(p(D2|θ)) as functions of theta", loc="left")
-# plt.xlabel("theta")
-# plt.ylabel("log(p(D_i|θ))")
-# plt.legend(["log(p(D1|θ))", "log(p(D2|θ))"])
-# plt.grid(color="white", linestyle="--", alpha=0.3)
-# plt.show()
+ax = plt.axes()
+ax.set_facecolor("black")
+plt.plot(theta,L1, color="green")
+plt.plot(theta,L2, color="red")
+plt.title("Display of log(p(D1|θ)) and log(p(D2|θ)) as functions of theta", loc="left")
+plt.xlabel("theta")
+plt.ylabel("log(p(D_i|θ))")
+plt.legend(["log(p(D1|θ))", "log(p(D2|θ))"])
+plt.grid(color="white", linestyle="--", alpha=0.3)
+plt.show()
 
 #Task A2
 
@@ -77,6 +77,8 @@ X = D1 + D2
 
 #Discrimination Function g
 g = list()
+
+#g = g1 - g2
 g1 = list()
 g2 = list()
 
@@ -84,6 +86,7 @@ for x in X:
     temp = (np.log((1/math.pi)*(1/(1+(x-theta1)**2))) - np.log((1/math.pi)*(1/(1+(x-theta2)**2)))) + (np.log(P_apriori1) - np.log(P_apriori2))
     g.append(temp)
 
+#g1 and g2 generated from g
 g1 = g[:len(D1)]
 g2 = g[len(D1):]
 
@@ -92,6 +95,8 @@ print(f"g1 is {g1} and is size of {np.size(g1)}")
 print(f"g2 is {g2} and is size of {np.size(g2)}")
 discrimination_line = [0 for _ in range(len(X))]
 
+#Need to implement subplots if wanted the second one
+#Classification and visualisation
 ax = plt.axes()
 ax.set_facecolor("black")
 plt.scatter(D1, g1, color="green")
@@ -102,4 +107,15 @@ plt.xlabel("x index")
 plt.ylabel("g(x)")
 plt.grid(color="white", linestyle="--", alpha=0.3)
 plt.legend(["class ω1", "class ω2"])
+plt.show()
+
+#Just classification
+ax = plt.axes()
+ax.set_facecolor("black")
+plt.scatter(X, g)
+plt.plot(X, discrimination_line, color="white", alpha=0.8)
+plt.title("Classification based on given discrimination function")
+plt.xlabel("x index")
+plt.ylabel("g(x)")
+plt.grid(color="white", linestyle="--", alpha=0.3)
 plt.show()
