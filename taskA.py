@@ -84,9 +84,22 @@ for x in X:
     temp = (np.log((1/math.pi)*(1/(1+(x-theta1)**2))) - np.log((1/math.pi)*(1/(1+(x-theta2)**2)))) + (np.log(P_apriori1) - np.log(P_apriori2))
     g.append(temp)
 
+g1 = g[:len(D1)]
+g2 = g[len(D1):]
+
 print(f"g is {g} and is size of {np.size(g)}")
+print(f"g1 is {g1} and is size of {np.size(g1)}")
+print(f"g2 is {g2} and is size of {np.size(g2)}")
 discrimination_line = [0 for _ in range(len(X))]
 
-plt.scatter(X, g)
-plt.plot(X, discrimination_line, color="black", alpha=0.3)
+ax = plt.axes()
+ax.set_facecolor("black")
+plt.scatter(D1, g1, color="green")
+plt.scatter(D2, g2, color="red")
+plt.plot(X, discrimination_line, color="white", alpha=0.8)
+plt.title("Classification based on given discrimination function")
+plt.xlabel("x index")
+plt.ylabel("g(x)")
+plt.grid(color="white", linestyle="--", alpha=0.3)
+plt.legend(["class ω1", "class ω2"])
 plt.show()
