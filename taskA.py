@@ -13,7 +13,7 @@ P(ω2) = 5/12
 p(x|theta) = (1/pi) * (1 / (1 + (x-theta)^2))
 """
 
-#A-priori probabilities.
+#A-priori probabilities
 P_apriori1 = 7/12
 P_apriori2 = 5/12
 
